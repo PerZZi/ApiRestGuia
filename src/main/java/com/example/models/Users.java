@@ -1,10 +1,7 @@
 package com.example.models;
 
 import com.example.models.enums.Rol;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +20,7 @@ public class Users {
     private String lastName;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private Rol rol = Rol.CLIENT;
 
     public Users(String name, String lastName, String email, String password) {

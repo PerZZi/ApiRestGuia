@@ -1,6 +1,4 @@
-import Forms from "./Products"
-import Header from "./Header"
-import Auth from "./auth"
+import Auth from "./Auth"
 
 const Home = () => {
 

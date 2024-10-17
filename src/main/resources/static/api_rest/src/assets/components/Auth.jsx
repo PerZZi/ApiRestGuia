@@ -23,6 +23,15 @@ const Auth = () => {
 
             console.log("Login Response:", response.data);
 
+            // Guarda el token en localStorage
+            const token = response.data.jwt;
+            console.log(token) // Asegúrate de que el backend te envíe el token en "token"
+            if (token) {
+                localStorage.setItem("token", token); // Guarda el token en localStorage
+            } else {
+                throw new Error("No se recibió un token de autenticación.");
+            }
+
             Swal.fire({
                 icon: 'success',
                 title: '¡Éxito!',

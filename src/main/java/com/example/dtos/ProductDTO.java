@@ -10,6 +10,7 @@ public class ProductDTO {
     private Long id;
     private String name;
     private String description;
+    private String imageUrl;
     private double price;
     private int stock;
     private ProductState productState;
@@ -18,6 +19,7 @@ public class ProductDTO {
         id = product.getId();
         name = product.getName();
         description = product.getDescription();
+        imageUrl = product.getImageUrl();
         price = product.getPrice();
         stock = product.getStock();
         productState = product.getProductState();

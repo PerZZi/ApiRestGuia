@@ -67,11 +67,16 @@ const Products = () => {
                 {/* Contenedor de las tarjetas de productos */}
                 <div className="product-container flex flex-wrap justify-center gap-6 my-4 test">
                     {products.map((product) => (
-                        <section className="product-card flex flex-col flex-wrap items-center rounded-xl bg-green-700 w-[300px] " key={product.id}>
-                            <h2>{product.name}</h2>
-                            <p className="text-center">{product.description}</p>
-                            <p>Precio: ${product.price}</p>
-                            <p>Stock disponible: {product.stock}</p>
+                        <section className="product-card flex flex-col flex-wrap items-center rounded-xl bg-white w-[300px] " key={product.id}>
+                            <img src={product.imageUrl} alt={product.name} className="w-full h-[300px] object-cover rounded-xl" />
+                            <h2 className="text-black">{product.name}</h2>
+                            <p className="text-center text-black">{product.description}</p>
+                            <p className="text-black">Precio: ${product.price}</p>
+                            <p className="text-black">Stock disponible: {product.stock}</p>
+                            <div className="flex justify-between  w-full">
+                            <button className="bg-green-700 w-full p-2 hover:bg-green-600">Comprar</button>
+                            <button className="bg-red-800 w-full p-2 hover:bg-red-700">Eliminar</button>
+                            </div>
                         </section>
                     ))}
                 </div>

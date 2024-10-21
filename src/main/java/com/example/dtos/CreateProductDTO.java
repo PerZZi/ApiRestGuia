@@ -11,6 +11,8 @@ public class CreateProductDTO {
     private String name;
     @NotBlank(message = "The description of the product cannot be empty")
     private String description;
+    @NotBlank(message = "The image of the product cannot be empty")
+    private String imageUrl;
     @NotNull(message = "The price of the product cannot be null")
     private Double price;
     @NotNull(message = "The Stock of the product cannot be null")

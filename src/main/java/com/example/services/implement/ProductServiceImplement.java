@@ -66,6 +66,7 @@ public class ProductServiceImplement implements ProductService {
         ProductDTO productDTO = new ProductDTO(product);
         product.getName();
         product.getDescription();
+        product.getImageUrl();
         product.getPrice();
         product.getStock();
         product.getProductState();
@@ -77,7 +78,7 @@ public class ProductServiceImplement implements ProductService {
     public ResponseEntity<String> createProduct(CreateProductDTO createProductDTO) {
 
         Product product = new Product(createProductDTO.getName()
-                ,createProductDTO.getDescription(),createProductDTO.getPrice(),createProductDTO.getStock());
+                ,createProductDTO.getDescription(),createProductDTO.getImageUrl(),createProductDTO.getPrice(),createProductDTO.getStock());
 
         productRepository.save(product);
         return new ResponseEntity<>("Product Created", HttpStatus.CREATED);

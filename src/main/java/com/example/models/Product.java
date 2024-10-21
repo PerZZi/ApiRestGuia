@@ -16,15 +16,17 @@ public class Product {
     private Long id;
     private String name;
     private String description;
+    private String imageUrl;
     private double price;
     private int stock;
     @Enumerated(EnumType.STRING)
     private ProductState productState = ProductState.AVAILABLE;
 
 
-    public Product(String name, String description, double price, int stock) {
+    public Product(String name, String description, String imageUrl, double price, int stock) {
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
         this.price = price;
         this.stock = stock;
     }

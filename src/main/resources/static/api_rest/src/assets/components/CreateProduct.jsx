@@ -7,12 +7,13 @@ const CreateProduct = () => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
     const [price, setPrice] = useState("");
     const [stock, setStock] = useState("");
 
     const urlCreate = "http://localhost:8080/product/create"
 
-    const productCreate = async (name, description, price, stock) => {
+    const productCreate = async (name, description,imageUrl, price, stock) => {
 
         const token = localStorage.getItem("token");
 
@@ -31,8 +32,9 @@ const CreateProduct = () => {
                 },
             };
 
-            const response = await axios.post(urlCreate, { name, description, price, stock }, config);
+            const response = await axios.post(urlCreate, { name, description, imageUrl, price, stock }, config);
             console.log(response.data)
+            console.log(config)
 
 
             Swal.fire({
@@ -42,7 +44,7 @@ const CreateProduct = () => {
                 confirmButtonText: 'Aceptar'
             });
 
-        } catch {
+        } catch (error) {
 
             Swal.fire({
                 icon: 'error',
@@ -58,7 +60,7 @@ const CreateProduct = () => {
     const handleSubmitProduct = (event) => {
         event.preventDefault();
         // Llamar a la función login al enviar el formulario
-        productCreate(name, description, price, stock);
+        productCreate(name, description, imageUrl, price, stock);
     };
 
     return (
@@ -89,6 +91,18 @@ const CreateProduct = () => {
                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
                         placeholder="Descripción del producto"
                         onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-semibold mb-2">URL de la Imagen</label>
+                    <input
+                        value={imageUrl}
+                        type="text"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                        placeholder="URL de la imagen"
+                        onChange={(e) => setImageUrl(e.target.value)}
                         required
                     />
                 </div>

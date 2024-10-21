@@ -56,7 +56,7 @@ const Products = () => {
             <Header />
             <div className="flex flex-col items-center mt-10 gap-4 ">
 
-                <button className="flex p-2 bg-blue-700 " onClick={listProducts}>Recargar Lista Productos</button>
+                <button className="flex p-2 bg-blue-700 hover:bg-blue-600" onClick={listProducts}>Recargar Lista Productos</button>
 
                 {/* Muestra un mensaje de carga */}
                 {loading && <p>Cargando productos...</p>}

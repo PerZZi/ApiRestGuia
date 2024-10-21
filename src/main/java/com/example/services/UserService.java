@@ -15,5 +15,6 @@ public interface UserService {
     boolean existsByEmail(String email);
     List<Users> getAllUser();
     List<UserDTO> getAllUserDTO();
+    UserDTO getUser(String email);
     ResponseEntity<String> register(RegisterDTO registerDTO);
 }

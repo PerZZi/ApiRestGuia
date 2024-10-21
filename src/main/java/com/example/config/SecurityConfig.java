@@ -53,7 +53,7 @@ public class SecurityConfig {
                                 .requestMatchers( HttpMethod.GET,"/product/list","/product/{id}").hasRole("CLIENT")
                                 .requestMatchers( HttpMethod.DELETE,"/product/delete/{id}").hasRole("CLIENT")
                                 .requestMatchers(HttpMethod.POST,"/product/create").hasRole("CLIENT")
-                                .requestMatchers(HttpMethod.GET,"/user/list").hasRole("CLIENT")
+                                .requestMatchers(HttpMethod.GET,"/user/list","/user/profile").hasRole("CLIENT")
                                 .requestMatchers(HttpMethod.POST,"/user/register").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/auth/login").permitAll()
                                 .anyRequest().denyAll()

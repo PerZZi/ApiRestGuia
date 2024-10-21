@@ -54,6 +54,24 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
+    public UserDTO getUser(String email) {
+
+        Users user = userRepository.findByEmail(email);
+
+        if(user == null){
+            return null;
+        }
+
+        UserDTO userDTO = new UserDTO(user);
+        userDTO.getName();
+        userDTO.getLastName();
+        userDTO.getEmail();
+        userDTO.getRol();
+
+        return userDTO;
+    }
+
+    @Override
     public ResponseEntity<String> register(RegisterDTO registerDTO) {
 
         if(existsByEmail(registerDTO.getEmail())){

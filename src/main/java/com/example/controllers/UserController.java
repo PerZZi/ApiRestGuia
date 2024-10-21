@@ -5,6 +5,7 @@ import com.example.dtos.userDtos.UserDTO;
 import com.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class UserController {
     @GetMapping("/list")
     public List<UserDTO> getAllUsers(){
         return userService.getAllUserDTO();
+    }
+
+    @GetMapping("/profile")
+    public UserDTO getUserProfile(Authentication authentication){
+        return userService.getUser(authentication.getName());
     }
 
     @PostMapping("/register")
